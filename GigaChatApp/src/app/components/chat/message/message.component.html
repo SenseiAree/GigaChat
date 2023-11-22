@@ -1,0 +1,164 @@
+<div class="message-routerLink-container" *ngIf="userProfile != undefined">
+    <div class="user-chats-container">
+        <div class="px-4 pt-4">
+            <div class="mb-4 message-title d-flex align-center justify-between">
+                <h3>Messages</h3>
+                <div class="auto-refresh-container">
+                    <label for="auto-refresh-checkbox">
+                        <div class="auto-refresh-slider-container">
+                        </div>
+                    </label>
+                    <input id="auto-refresh-checkbox" type="checkbox" checked (click)="toggleAutoRefresh()">
+                </div>
+            </div>
+            <div class="input-group mb-3 rounded-3">
+                <div class="search-icon-container">
+                    <i class="ri-search-line"></i>
+                </div>
+                <div class="search-bar-container">
+                    <input [(ngModel)]="searchUsers" placeholder="Search users" class="search-bar" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="conversation-list-container px-2">
+            <div class="conversation-list-header">
+                <h4>
+                    Conversation List
+                </h4>
+                <div class="switch" #divElementToBeRotated>
+                    <span class="manual-refresh" *ngIf="!autoRefresh"
+                        (click)="refreshMessageCount(divElementToBeRotated, true)">
+                        <i class="ri-refresh-line"></i>
+                    </span>
+                    <!-- <span class="slider round"></span> -->
+                </div>
+            </div>
+            <ul class="conversation-card-group" *ngIf="starredMessages!= null || starredMessages!= undefined">
+                <li class="conversation-card" *ngFor="let user of filterUsers(); let i = index">
+                    <div class="conversation-card-link"
+                        (click)=" getMessagesFromUserId(user.userId); content = ''; isEditing = false">
+                        <div class="d-flex">
+                            <div class="img-container">
+                                <img [src]="'../../../../assets/Icons/ProfilePictures/' + findPicture(user)" height="40"
+                                    alt="">
+                                <span class="availability" [ngClass]="{
+                        'available': findAvailability(user.userId) == 'Available', 
+                        'busy': findAvailability(user.userId) == 'Busy',
+                        'brb-status': findAvailability(user.userId) == 'Be right back',
+                        'dnd-status': findAvailability(user.userId) == 'Do not disturb',
+                        'offline': findAvailability(user.userId) == 'Appear Offline'
+                    }"></span>
+                            </div>
+                            <h4 class="message-person-name-container">{{ user.displayName }}</h4>
+                        </div>
+                        <div class="unread-message-count-container" *ngIf="unreadMessageCount[user.userId] > 0">
+                            <div class="unread-message-count">{{unreadMessageCount[user.userId]}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="conversation-container">
+        <div class="conversation-view">
+            <div class="empty-conversation-view" *ngIf="messages == undefined || messages == null">
+                <div class="large-chat-icon-container">
+                    <svg width="70px" height="65px" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-message-square">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <h2 class="start-conversation-container">
+                    Start Conversation
+                </h2>
+
+            </div>
+
+            <div class="load-conversation-container" *ngIf="messages !== undefined && messages !== null">
+                <div class="profile-template-container">
+                    <div class="displayName-with-avatar">
+                        <i class="ri-arrow-left-s-line cursor-pointer" (click)="messages = undefined"></i>
+                        <div class="avatar-container">
+                            <img [src]="'../../../../../assets/Icons/ProfilePictures/' + getAvatar()"
+                                height="40" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="displayName-container">
+                            <h3 class="displayName">{{ getDisplayName() }}</h3>
+                        </div>
+                    </div>
+                    <div class="search-message-container d-flex align-center">
+                        <div class="search-message-wrap">
+                            <input id="search-message-input-bar" [(ngModel)]="messageSearched"  placeholder="Search messages..." class="search-message-bar" type="text">
+                            <label class="search-message-label" for="search-message-input-bar">
+                                <i class="ri-search-line"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-conversation-view" id="load-conversation-view" *ngIf="messages">
+                    <div class="conversation" *ngFor="let message of filterMessages()">
+                        <div class="message-container">
+                            <img class="profile-picture avatar"
+                                [src]="'../../../../../assets/Icons/ProfilePictures/' + (message.senderId == userId? userProfile.avatar : getAvatar())"
+                                height="30" alt="Avatar">
+
+                            <div class="message"
+                                [ngClass]="{ 'right': message.senderId == userId, 'left': message.receiverId == userId }">
+                                <div class="message-content">
+                                    <p class="message-text">{{ message.content }}</p>
+                                    <!-- <input type="text" class="message-text" [value]="message.content" *ngIf="editMode"> -->
+                                </div>
+                                <div class="message-time">
+                                    <p class="message-time-text">
+                                        <i class="ri-time-line"></i>
+                                        {{ returnDate(message.sentTime) }}
+                                    </p>
+                                </div>
+                                <div class="message-edition" [ngClass]="{'visibility-hidden': isEditing}">
+                                    <div class="delete-icon" *ngIf="message.senderId == userId"
+                                        (click)="deleteMessage(message.messageId)">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </div>
+                                    <div class="star-icon" (click)="toggleStarMessage(message)">
+                                        <i [ngClass]="{
+                                            'ri-star-line': !isStarred(message.messageId), 
+                                            'ri-star-fill': isStarred(message.messageId)
+                                        }"></i>
+                                    </div>
+                                    <div class="pencil-icon" *ngIf="message.senderId == userId"
+                                        (click)="editMode(message)">
+                                        <i class="ri-pencil-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-sending-container">
+                    <div class="message-input-container">
+                        <input type="text" [(ngModel)]="content" class="message-input" (keydown)="pressedEnter($event)"
+                            [disabled]="isFriend(friendId) == IsFriend.Blocked"
+                            [placeholder]=" isFriend(friendId) == IsFriend.Blocked? 'You can no longer send messages to this person' : 'Enter message...'">
+                        <button class="message-edit-cancel" *ngIf="isEditing" (click)="cancelEditMode()">
+                            <i class="ri-close-circle-line"></i>
+                        </button>
+                    </div>
+                    <div class="send-button-container">
+                        <button id="send-button" class="send-button" (click)="sendMessage()" *ngIf="!isEditing"
+                            [disabled]="isFriend(friendId) == IsFriend.Blocked || content == null || content == undefined || content == ''">
+                            <i class="ri-send-plane-2-fill"></i>
+                        </button>
+                        <button id="edit-button" class="send-button" (click)="editMessage()" *ngIf="isEditing"
+                            [disabled]="isFriend(friendId) == IsFriend.Blocked || content == null || content == undefined || content == ''">
+                            <i class="ri-pencil-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

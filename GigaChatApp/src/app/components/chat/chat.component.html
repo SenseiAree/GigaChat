@@ -1,0 +1,45 @@
+<div class="chat-container" *ngIf="isLightTheme != undefined" [ngClass]="{'day-mode': isLightTheme, 'night-mode': !isLightTheme}">
+    <div class="side-navbar-menu">
+        <a class="brand-container" routerLink="/chat">
+            <img src="../../../assets/Icons/Brand/logo.png" height="30" alt="">
+        </a>
+        <div class="menu basic-menu">
+            <a data-content="Profile" class="icon-frame icon-link" routerLinkActive="router-link" routerLink="/chat/profile">
+                <i class="ri-user-2-line"></i>
+            </a>
+            <a data-content="Messages" class="icon-frame icon-link" routerLinkActive="router-link" routerLink="/chat/messages">
+                <i class="ri-message-3-line"></i>
+            </a>
+            <a data-content="Contacts" class="icon-frame icon-link" routerLinkActive="router-link" routerLink="/chat/contacts">
+                <i class="ri-contacts-line"></i>
+            </a>
+            <a data-content="Feedback" class="icon-frame icon-link" routerLinkActive="router-link" routerLink="/chat/feedback">
+                <i class="ri-feedback-line"></i>
+            </a>
+        </div>
+        <div class="settings-menu">        
+            <a data-content="Theme" (click)="toggleTheme()" class="icon-frame icon-link">
+                <i [ngClass]="{'ri-moon-line': !isLightTheme, 'ri-sun-line': isLightTheme}"></i>
+            </a>
+            <a data-content="Log Out" (click)="logOut()" class="icon-frame icon-link">
+                <i class="ri-logout-circle-line"></i>
+            </a>
+            <a *ngIf="userProfile" data-content="Status" class="icon-frame icon-link" routerLink="/chat/status">
+                <div class="avatar-container">
+                    <img [src]="'../../../assets/Icons/ProfilePictures/' + userProfile.avatar" height="45" alt="">
+                    <span class="availability"
+                    [ngClass]="{
+                        'available': userProfile.availabilityStatus == 'Available', 
+                        'busy': userProfile.availabilityStatus == 'Busy',
+                        'brb-status': userProfile.availabilityStatus == 'Be right back',
+                        'dnd-status': userProfile.availabilityStatus == 'Do not disturb',
+                        'offline': userProfile.availabilityStatus == 'Appear Offline'
+                    }"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="chat-interface-frame">
+        <router-outlet></router-outlet>
+    </div>
+</div>

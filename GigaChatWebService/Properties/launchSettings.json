@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "GigaChatWebService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:57932;http://localhost:57933"
+    }
+  }
+}

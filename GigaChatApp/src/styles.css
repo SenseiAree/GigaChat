@@ -1,0 +1,504 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Muli:400,700");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* outline: 0.1px solid red; */
+}
+
+a:active {
+  color: #0a0514;
+}
+
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.night-mode {
+  --bs-gray-100: hsl(210, 11%, 15%);
+  --bs-gray-100-transparent-color: hsla(210, 11%, 15%, 0.753);
+  --bs-gray-200: hsl(225, 20%, 19%);
+  --bs-gray-200-transparent-color: hsla(225, 20%, 19%, 0.753);
+  --bs-gray-300: hsl(210, 16%, 25%);
+  --bs-gray-300-transparent-color: #36404ac0;
+  --bs-gray-400: hsl(225, 30%, 73%);
+  --bs-gray-400-transparent-color: #a6b0cfc0;
+  --bs-gray-500: hsl(226, 18%, 66%);
+  --bs-gray-500-transparent-color: #9aa1b9c0;
+  --bs-gray-600: hsl(226, 29%, 75%);
+  --bs-gray-600-transparent-color: hsla(226, 30%, 75%, 0.753);
+  --bs-gray-700: hsl(210, 36%, 91%);
+  --bs-gray-700-transparent-color: hsla(210, 36%, 91%, 0.753);
+  --bs-gray-800: hsl(218, 33%, 95%);
+  --bs-gray-800-transparent-color: hsla(218, 33%, 95%, 0.753);
+  --bs-gray-900: hsl(210, 17%, 98%);
+  --bs-gray-900-transparent-color: hsla(210, 17%, 98%, 0.753);
+  --bs-sidebar-bg: hsl(210, 16%, 25%);
+  --bs-sidebar-menu-item-color: hsl(225, 30%, 73%);
+  --bs-sidebar-menu-item-active-color: hsl(244, 81%, 67%);
+  --bs-sidebar-menu-item-active-bg: hsl(210, 16%, 29%);
+  --bs-sidebar-sub-bg: hsl(212, 15%, 22%);
+  --bs-chat-primary-bg: hsl(244, 81%, 67%);
+  --bs-chat-secondary-bg: hsl(210, 16%, 25%);
+  --bs-body-bg: hsl(212, 15%, 22%);
+  --bs-body-color: hsl(225, 30%, 73%);
+  --bs-body-color-rgb: 166, 176, 207;
+  --bs-footer-bg: hsl(225, 20%, 19%);
+  --bs-footer-color: hsl(225, 30%, 73%);
+  --bs-topnav-bg: hsl(224, 21%, 22%);
+  --bs-topnav-item-color: hsl(225, 30%, 73%);
+  --bs-topnav-item-color-active: hsl(0, 0%, 100%);
+  --bs-twocolumn-menu-iconview-bg: hsl(0, 0%, 100%);
+  --bs-twocolumn-menu-bg: hsl(0, 0%, 100%);
+  --bs-twocolumn-menu-iconview-bg-dark: var(--bs-vertical-menu-bg-dark);
+  --bs-twocolumn-menu-bg-dark: hsl(204, 9%, 21%);
+  --bs-twocolumn-menu-item-color-dark: var(--bs-vertical-menu-item-color-dark);
+  --bs-twocolumn-menu-item-active-color-dark: hsl(0, 0%, 100%);
+  --bs-twocolumn-menu-item-active-bg-dark: hsla(0, 0%, 100%, 0.15);
+  --bs-boxed-body-bg: hsl(210, 11%, 11%);
+  --bs-heading-color: hsl(210, 36%, 91%);
+  --bs-light: hsl(210, 16%, 25%);
+  --bs-light-rgb: 54, 64, 74;
+  --bs-dark: hsl(218, 33%, 95%);
+  --bs-dark-rgb: 239, 242, 247;
+  --bs-text-muted: hsl(226, 18%, 66%);
+  --bs-link-color: hsl(210, 36%, 91%);
+  --bs-link-hover-color: hsl(210, 36%, 91%);
+  --bs-border-color: #36404a;
+  --bs-dropdown-bg: #313a43;
+  --bs-dropdown-link-color: #9aa1b9;
+  --bs-dropdown-link-hover-color: #ecedee;
+  --bs-dropdown-link-hover-bg: #36404a;
+  --bs-dropdown-border-width: 1px;
+  --bs-card-bg: #262e35;
+  --bs-card-cap-bg: #272c3b;
+  --bs-card-logo-dark: none;
+  --bs-card-logo-light: block;
+  --bs-modal-bg: #272c3b;
+  --bs-modal-content-bg: #272c3b;
+  --bs-modal-content-border-color: #36404a;
+  --bs-nav-tabs-link-active-color: #f8f9fa;
+  --bs-nav-tabs-link-active-bg: #36404a;
+  --bs-accordion-button-active-color: #fff;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-button-bg: #36404a;
+  --bs-progress-bg: #36404a;
+  --bs-toast-background-color: rgba(54, 64, 74, 0.85);
+  --bs-toast-border-color: rgba(255, 255, 255, 0.1);
+  --bs-toast-header-border-color: rgba(255, 255, 255, 0.05);
+  --bs-list-group-hover-bg: #2c3243;
+  --bs-popover-bg: #292e3e;
+  --bs-pagination-hover-bg: #2f3547;
+  --bs-input-bg: #2b3141;
+  --bs-input-group-addon-border-color: #36404a;
+  --bs-input-border: #36404a;
+  --bs-input-border-color: #36404a;
+  --bs-input-focus-border: #3f4a56;
+  --bs-input-disabled-bg: #272c3b;
+  --bs-input-placeholder-color: #a6b0cf;
+  --bs-input-group-addon-bg: #36404a;
+  --bs-input-check-border: #3f4a56;
+}
+
+.day-mode {
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-100-transparent-color: #f8f9fac0;
+  --bs-gray-200: #eff2f7;
+  --bs-gray-200-transparent-color: #eff2f7c0;
+  --bs-gray-300: #e1e9f1;
+  --bs-gray-300-transparent-color: #e1e9f1c0;
+  --bs-gray-400: #abb4d2;
+  --bs-gray-400-transparent-color: #abb4d2c0;
+  --bs-gray-500: #9aa1b9;
+  --bs-gray-500-transparent-color: #9aa1b9c0;
+  --bs-gray-600: #a6b0cf;
+  --bs-gray-600-transparent-color: #a6b0cfc0;
+  --bs-gray-700: #36404a;
+  --bs-gray-700-transparent-color: #36404ac0;
+  --bs-gray-800: #272c3b;
+  --bs-gray-800-transparent-color: #272c3bc0;
+  --bs-gray-900: #212529;
+  --bs-gray-900-transparent-color: #212529c0;
+  --bs-sidebar-bg: #ffffff;
+  --bs-sidebar-menu-item-color: #878a92;
+  --bs-sidebar-menu-item-active-color: #7269ef;
+  --bs-sidebar-menu-item-active-bg: #f7f7ff;
+  --bs-sidebar-sub-bg: #f5f7fb;
+  --bs-chat-primary-bg: #7269ef;
+  --bs-chat-secondary-bg: #f5f7fb;
+  --bs-body-bg: #f7f7ff;
+  --bs-body-color: #495057;
+  --bs-body-color-rgb: 73, 80, 87;
+  --bs-footer-bg: #fff;
+  --bs-footer-color: #98a6ad;
+  --bs-boxed-body-bg: hsl(210, 11%, 101%);
+  --bs-light: #e6ebf5;
+  --bs-light-rgb: 230, 235, 245;
+  --bs-dark: #212529;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-text-muted: #7a7f9a;
+  --bs-link-color: #7269ef;
+  --bs-link-hover-color: #7269ef;
+  --bs-border-color: #f0eff5;
+  --bs-dropdown-bg: #fff;
+  --bs-dropdown-link-color: #212529;
+  --bs-dropdown-link-hover-color: #1f2327;
+  --bs-dropdown-link-hover-bg: #f8f9fa;
+  --bs-dropdown-border-width: 0px;
+  --bs-card-bg: #fff;
+  --bs-card-cap-bg: #fff;
+  --bs-card-logo-dark: block;
+  --bs-card-logo-light: none;
+  --bs-modal-bg: #fff;
+  --bs-modal-content-bg: #fff;
+  --bs-modal-content-border-color: #f0eff5;
+  --bs-nav-tabs-link-active-color: #495057;
+  --bs-nav-tabs-link-active-bg: #f7f7ff;
+  --bs-accordion-button-active-color: #675fd7;
+  --bs-accordion-bg: #fff;
+  --bs-accordion-button-bg: #f5f7fb;
+  --bs-progress-bg: #f5f7fb;
+  --bs-toast-background-color: rgba(255, 255, 255, 0.85);
+  --bs-toast-border-color: rgba(0, 0, 0, 0.1);
+  --bs-toast-header-border-color: rgba(0, 0, 0, 0.05);
+  --bs-list-group-hover-bg: #f8f9fa;
+  --bs-popover-bg: #fff;
+  --bs-pagination-hover-bg: #f5f7fb;
+  --bs-input-bg: #fff;
+  --bs-input-group-addon-border-color: #e6ebf5;
+  --bs-input-border: #e6ebf5;
+  --bs-input-border-color: #e6ebf5;
+  --bs-input-focus-border: #b9b4f7;
+  --bs-input-disabled-bg: #f5f7fb;
+  --bs-input-placeholder-color: #7a7f9a;
+  --bs-input-group-addon-bg: #f5f7fb;
+  --bs-input-check-border: var(--bs-input-border);
+}
+
+:root {
+  --primary: hsl(211, 100%, 50%);
+  --secondary: hsl(208, 7%, 46%);
+  --success: hsl(134, 61%, 41%);
+  --info: hsl(188, 78%, 41%);
+  --warning: hsl(45, 100%, 51%);
+  --danger: hsl(354, 70%, 54%);
+  --light: hsl(210, 17%, 98%);
+  --dark: hsl(210, 10%, 23%);
+}
+
+.neo-morphism {
+  box-shadow: 2px 2px 8px 0px var(--brand-200),
+    -2px -2px 8px 0px var(--brand-50);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.danger {
+  background-color: var(--danger);
+  color: var(--light);
+}
+
+.danger.important {
+  background-color: var(--danger) !important;
+  color: var(--light) !important;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.form-input.ng-touched.ng-invalid {
+  outline: 2px solid var(--danger) !important;
+}
+
+.form-input.ng-touched.ng-valid {
+  outline: 2px solid var(--success) !important;
+}
+
+.form-input.ng-touched.ng-invalid:focus {
+  outline: 2px solid var(--danger) !important;
+}
+
+.form-input.ng-touched.ng-valid:focus {
+  outline: 2px solid var(--success) !important;
+}
+
+app-message {
+  height: 100%;
+  /* transition-property: background-color color;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-in-out; */
+}
+
+.px-4 {
+  padding-inline: 1.5rem;
+}
+
+.pt-4 {
+  padding-block-start: 1.5rem;
+}
+
+.mb-4 {
+  margin-block-end: 1.5rem;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--bs-gray-700);
+  font-family: Roboto;
+  font-weight: 500;
+}
+
+.rounded-3 {
+  border-radius: 0.4rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.px-2 {
+  padding-inline: 0.5rem;
+}
+
+.px-3 {
+  padding-inline: 1rem;
+}
+
+.py-2 {
+  padding-block: 0.5rem;
+}
+
+.py-3 {
+  padding-block: 1rem;
+}
+
+.mb-3 {
+  margin-block-end: 1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-Roboto {
+  font-family: Roboto;
+}
+
+.w-0 {
+  width: 0 !important;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bs-chat-primary-bg);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bs-chat-secondary-bg);
+}
+
+.available {
+  background-color: var(--success);
+}
+
+.available::before {
+  content: "\eb7b";
+  position: absolute;
+  font-family: 'remixicon';
+  top: 50%;
+  left: 50%;
+  font-size: larger;
+  translate: -50% -50%;
+  color: var(--light);
+}
+
+.busy {
+  background-color: var(--danger);
+}
+
+.dnd-status {
+  background: var(--danger);
+}
+
+.dnd-status::before {
+  content: "\f1af";
+  position: absolute;
+  font-family: 'remixicon';
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  color: var(--light);
+}
+
+.brb-status {
+  background-color: var(--warning);
+}
+
+.brb-status::before {
+  content: "\f20f";
+  position: absolute;
+  font-family: 'remixicon';
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  color: var(--light);
+  font-size: 2rem;
+}
+
+.offline {
+  background-color: var(--bs-gray-100);
+  color: var(--bs-sidebar-menu-item-color);
+  border: 3px solid currentColor;
+}
+
+.offline::before {
+  content: "\eb98";
+  position: absolute;
+  font-size: 1.25rem;
+  font-family: 'remixicon';
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+.justify-between{
+  justify-content: space-between;
+}
+
+.day-mode .auto-refresh-slider-container{
+  box-shadow: inset 1px 1px 0.25rem 0px var(--bs-gray-400-transparent-color);
+}
+.night-mode .auto-refresh-slider-container{
+  box-shadow: -1px -1px 0.25rem 0px var(--bs-gray-400-transparent-color);
+}
+
+.day-mode .card{
+  box-shadow: inset 1px 1px 0.75rem 0 var(--bs-card-bg);
+}
+.night-mode .card{
+  box-shadow: 1px 1px 0.5rem 0 var(--bs-card-bg);
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/cyrillic-ext.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/cyrillic.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/greek-ext.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/greek.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/vietnamese.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/Font-Styles/Roboto/latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

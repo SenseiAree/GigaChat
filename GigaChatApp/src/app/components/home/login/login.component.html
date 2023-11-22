@@ -1,0 +1,62 @@
+<div id="login" class="login-container">
+    <svg class="background-blob" id="sw-js-blob-svg" viewBox="70 5 10 50">
+        <defs>
+            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                <stop id="stop1" stop-color="rgba(145, 112, 219, 1)" offset="0%"></stop>
+                <stop id="stop2" stop-color="rgba(208, 194, 240, 1)" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <path fill="url(#sw-gradient)" id="shape-blob"
+            d="M21.9,-29.1C27.7,-25.9,31.2,-18.6,29.6,-12.3C28,-5.9,21.3,-0.6,17.3,3.8C13.3,8.1,12.1,11.5,9.6,18.5C7.2,25.6,3.6,36.3,-0.2,36.6C-4,36.8,-8,26.7,-15.1,21.2C-22.2,15.6,-32.4,14.8,-36.1,10.2C-39.7,5.6,-36.8,-2.7,-33,-9.6C-29.3,-16.5,-24.7,-22.1,-19,-25.3C-13.4,-28.6,-6.7,-29.6,0.7,-30.5C8,-31.5,16.1,-32.3,21.9,-29.1Z"
+            width="100%" height="100%" transform="translate(50 50)" stroke-width="0"
+            style="transition: all 0.3s ease 0s;" stroke="url(#sw-gradient)"></path>
+        <animate xlink:href="#shape-blob" attributeName="d" attributeType="XML"
+            values="M21.9,-29.1C27.7,-25.9,31.2,-18.6,29.6,-12.3C28,-5.9,21.3,-0.6,17.3,3.8C13.3,8.1,12.1,11.5,9.6,18.5C7.2,25.6,3.6,36.3,-0.2,36.6C-4,36.8,-8,26.7,-15.1,21.2C-22.2,15.6,-32.4,14.8,-36.1,10.2C-39.7,5.6,-36.8,-2.7,-33,-9.6C-29.3,-16.5,-24.7,-22.1,-19,-25.3C-13.4,-28.6,-6.7,-29.6,0.7,-30.5C8,-31.5,16.1,-32.3,21.9,-29.1Z;
+            M20.1,-33.2C21.8,-26.4,16,-14.9,17.2,-6.7C18.4,1.5,26.4,6.4,26.1,8.9C25.8,11.4,17.1,11.5,11.4,17.2C5.6,23,2.8,34.3,-0.9,35.5C-4.6,36.8,-9.3,27.9,-13.9,21.8C-18.5,15.7,-23.1,12.4,-26.3,7.4C-29.5,2.4,-31.3,-4.2,-29,-8.9C-26.8,-13.7,-20.5,-16.7,-15,-22.3C-9.5,-27.9,-4.8,-36.1,2.2,-39.1C9.2,-42.2,18.3,-40,20.1,-33.2Z; M21.9,-29.1C27.7,-25.9,31.2,-18.6,29.6,-12.3C28,-5.9,21.3,-0.6,17.3,3.8C13.3,8.1,12.1,11.5,9.6,18.5C7.2,25.6,3.6,36.3,-0.2,36.6C-4,36.8,-8,26.7,-15.1,21.2C-22.2,15.6,-32.4,14.8,-36.1,10.2C-39.7,5.6,-36.8,-2.7,-33,-9.6C-29.3,-16.5,-24.7,-22.1,-19,-25.3C-13.4,-28.6,-6.7,-29.6,0.7,-30.5C8,-31.5,16.1,-32.3,21.9,-29.1Z"
+            dur="10s" repeatCount="indefinite" />
+    </svg>
+    <form class="login-frame neo-morphism" data-aos="fade-right" data-aos-duration="500" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">        
+        <div class="form-header">
+            Login
+        </div>
+        <div class="form-frame">            
+            <div class="label-input-div-container">                
+                <div class="label-input-div">
+                    <label class="d-block form-font" for="emailId-input">Email</label>
+                    <input class="form-input" formControlName="emailId"  id="emailId-input" type="text" >
+                    <div class="validation-Confirmation" [ngClass]="{'visibility-hidden' : !((loginForm.controls.emailId.errors?.required || loginForm.controls.emailId.errors?.email ) && loginForm.controls.emailId.touched) }">
+                        {{ loginForm.controls.emailId.errors?.email? "Email Id should be valid" : "Email Id is required" }}
+                    </div>
+                </div>
+                <div class="label-input-div">
+                    <label class="d-block form-font" for="password-input">Password</label>
+                    <input class="form-input" formControlName="password" id="password-input" type="text" required>
+                    <div class="validation-Confirmation" [ngClass]="{'visibility-hidden' : !((loginForm.controls.password.errors?.required || loginForm.controls.password.errors?.minlength || loginForm.controls.password.errors?.maxlength) && loginForm.controls.password.touched) }">
+                        {{ loginForm.controls.password.errors?.required? "Password is required" : "Password should be 8-16 characters" }}
+                    </div>
+                </div>
+                
+            </div>
+            <div class="submit-button-container">
+                <button [disabled]="!loginForm.valid" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" class="submit-button" style="border-top-right-radius: 0; border-bottom-right-radius: 0;" type="submit">
+                    Log In
+                </button>
+                <div class="d-flex justify-content-around align-center">
+                    <button class="danger submit-button important" style="border-top-left-radius: 0; border-bottom-left-radius: 0;" type="reset">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="invalid-details" *ngIf="invalidLogin">
+                {{invalidLoginMessage}}
+            </div>
+            <div class="not-a-member">
+                Not a Member? <a routerLink="/signup">
+                    Sign up now
+
+                </a>
+            </div>
+        </div>
+        
+    </form>
+</div>

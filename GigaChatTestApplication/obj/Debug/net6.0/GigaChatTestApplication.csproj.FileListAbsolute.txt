@@ -1,0 +1,5 @@
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatTestApplication\obj\Debug\net6.0\GigaChatTestApplication.csproj.AssemblyReference.cache
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatTestApplication\obj\Debug\net6.0\GigaChatTestApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatTestApplication\obj\Debug\net6.0\GigaChatTestApplication.AssemblyInfoInputs.cache
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatTestApplication\obj\Debug\net6.0\GigaChatTestApplication.AssemblyInfo.cs
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatTestApplication\obj\Debug\net6.0\GigaChatTestApplication.csproj.CoreCompileInputs.cache

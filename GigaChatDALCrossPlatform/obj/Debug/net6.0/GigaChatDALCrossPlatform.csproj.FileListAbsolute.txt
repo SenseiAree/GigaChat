@@ -1,0 +1,14 @@
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\bin\Debug\net6.0\GigaChatDALCrossPlatform.deps.json
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\bin\Debug\net6.0\GigaChatDALCrossPlatform.runtimeconfig.json
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\bin\Debug\net6.0\GigaChatDALCrossPlatform.dll
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\bin\Debug\net6.0\GigaChatDALCrossPlatform.pdb
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.csproj.AssemblyReference.cache
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.AssemblyInfoInputs.cache
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.AssemblyInfo.cs
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.csproj.CoreCompileInputs.cache
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.dll
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\refint\GigaChatDALCrossPlatform.dll
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.pdb
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\GigaChatDALCrossPlatform.genruntimeconfig.cache
+C:\Users\areetra.halder\source\repos\CapContest1 Microsoft Indians\GigaCHAT\GigaChatDALCrossPlatform\obj\Debug\net6.0\ref\GigaChatDALCrossPlatform.dll

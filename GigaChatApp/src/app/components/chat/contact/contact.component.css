@@ -1,0 +1,157 @@
+.contacts-container {
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    --bs-bg-opacity: 1;
+
+}
+.view-contact-container{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+.user-chats-container {
+    width: 100%;
+    height: 100%;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: stretch;
+    width: 100%;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.search-icon-container {
+    padding-inline-start: 1rem;
+    padding-inline-end: 0.25rem;
+    padding-block: 0.75rem;
+}
+
+.search-bar-container {
+    width: 100%;
+}
+
+.search-bar {
+    color: var(--bs-gray-800);
+    height: 100%;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    width: max-content;
+    width: 100%;
+    padding-inline: 1rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.conversation-list-header {
+    padding-inline: 1rem;
+    margin-block-end: 1rem;
+    margin-block-start: 2rem;
+}
+
+.conversation-card-group {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1px;
+    overflow-y: auto;
+}
+
+.conversation-card {
+    padding-block: 1rem;
+    padding-inline: 1.25rem;
+    transition: background-color 0.25s ease-in-out;
+    border-radius: 0.25rem;
+}
+
+.conversation-card:nth-child(n+1) {
+    border-top: 1px var(--bs-border-color) solid;
+
+}
+
+.conversation-card-link {
+    text-decoration: none;
+}
+
+.img-container {
+    margin-inline-end: 1rem;
+}
+
+.conversation-view {
+    height: 100%;
+    width: 100%;
+}
+
+.button {
+    border: 0;
+    background-color: var(--bs-chat-primary-bg);
+    color: var(--light);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    border-radius: 24px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    box-shadow: 1px 1px 2px 0px #9270db93;
+}
+
+.contact-list-grid {
+    display: grid;
+    grid-template-columns: calc(40px + 1rem) 1fr 1fr;
+    align-items: center;
+}
+
+.isFriend-container {
+    justify-self: flex-end;
+}
+
+.contact-button {
+    border: 0;
+    background: var(--bs-gray-200-transparent-color);
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    color: var(--bs-gray-800);
+    transition: background 0.125s ease-in-out;
+}
+
+.contact-button:hover{
+    background: var(--bs-chat-primary-bg);
+    color: var(--light);
+}
+
+.gap-25{
+    gap: 0.25rem;
+}
+
+.conversation-card:hover {
+    background-color: var(--bs-light);
+}
+.showAvailabilityStatus{
+    margin-inline-start: 1rem;
+    border: 1px solid currentColor;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+.showAvailabilityStatus.available-label{
+    color: var(--success);
+}
+.showAvailabilityStatus.busy-label, .showAvailabilityStatus.dnd-status-label{
+    color: var(--danger);
+}
+.showAvailabilityStatus.brb-status-label{
+    color: var(--warning);    
+}
+.showAvailabilityStatus.offline-label{
+    color: var(--secondary);
+}
+
+.conversation-list-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.conversation-card-group{
+    overflow-y: auto;
+}

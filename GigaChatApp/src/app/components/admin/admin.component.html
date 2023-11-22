@@ -1,0 +1,107 @@
+<div class="admin-portal-container d-flex justify-center align-center" *ngIf="isLightTheme != undefined"
+    [ngClass]="{'day-mode': isLightTheme, 'night-mode': !isLightTheme}">
+    <div class="admin-utility-grid">
+        <div class="feedback-display-container card">
+            <div class="notification-panel">
+                <div class="welcome-label">
+                    Welcome, {{user.displayName}}
+                </div>
+                <div class="panel-icons-container d-flex">
+                    <div class="panel-button" (click)="toggleTheme()">
+                        <i [ngClass]="{'ri-moon-line': !isLightTheme, 'ri-sun-line': isLightTheme}"></i>
+                    </div>
+                    <div class="panel-button" (click)="logOut()">
+                        <i class="ri-logout-circle-line"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-container" *ngIf="feedbackUserProfiles">
+                <h2>All Feedbacks <br></h2>
+                <div class="feedback-cards-container">
+
+                    <div class="feedback-component feedback-card" *ngFor="let feedback of feedbackList; let i = index">
+                        <div class="feedback-username">
+                            <span>
+                                <img [src]="'../../../assets/Icons/ProfilePictures/' + feedbackUserProfiles[i].avatar"
+                                    height="30" alt="">
+                                {{feedbackUsers[i].displayName + " (UserId: "+feedback.userId + ")"}}
+                            </span>
+                            <span>
+                                <i class="ri-star-s-fill" *ngFor="let _ of [].constructor(feedback.rating)"></i>
+                                <i class="ri-star-s-line" *ngFor="let _ of [].constructor(5 - feedback.rating)"></i>
+                            </span>
+                        </div>
+                        <div class="feedback-feedbackcontent">
+                            <span class="feedback-content-container"><i
+                                    class="ri-message-2-line"></i>{{feedback.userFeedback}}</span>
+                        </div>
+                        <div class="feedback-adminReply" *ngIf="feedback.adminReply">
+
+                            <span>
+                                Admin: {{feedback.adminReply}}
+                            </span>
+                        </div>
+                        <div *ngIf="!feedback.adminReply">
+                            <div class="admin-reply-icon" [ngClass]="{'visibility-hidden':submitFeedbck}"
+                                (click)="addAdminReply(feedback.feedbackId)">
+                                <i class="ri-reply-line"></i>
+                            </div>
+                            <form *ngIf="submitFeedbck && feedback.feedbackId == selectedFeedback"
+                                class="d-flex justify-between align-center">
+                                <div class="form-control">
+                                    <input type="text" #adminReply>
+                                    <div class="cancel-icon icon">
+                                        <i class="ri-close-circle-line" (click)="submitFeedbck = !submitFeedbck"></i>
+                                    </div>
+                                </div>
+                                <div class="send-icon icon">
+                                    <i class="ri-send-plane-fill"
+                                        (click)="sendAdminReply(feedback.feedbackId, adminReply.value)"></i>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="user-count-container card">
+            <div class="total-user-count title-container">
+                Active Users
+            </div>
+            <div class="total-user-count-numericalCount numericalCount-container">
+                <div class="total-user-count-numericalCount">
+                    {{activeUserCount!=undefined? activeUserCount : "⏳"}}
+                </div>
+            </div>
+        </div>
+        <div class="total-user-count-container card">
+            <div class="user-count title-container">
+                Total Users
+            </div>
+            <div class="user-count-numericalCount numericalCount-container">
+                <div class="user-count-numericalCount">
+                    {{userCount != undefined? userCount : "⏳"}}
+                </div>
+            </div>
+        </div>
+        <div class="avg-rating-count-container card">
+            <div class="user-count title-container">
+                Average Rating
+            </div>
+            <div class="avg-rating-count-numericalCount numericalCount-container">
+                <div class="avg-rating-numericalCount">
+                    {{averageRating!=undefined?  (averageRating | number: '1.1-1') : "⏳"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

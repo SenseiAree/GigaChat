@@ -1,0 +1,51 @@
+<div class="profile-container">
+  <div class="radial-light"></div>
+
+  <div class="profile frame">
+    <h1 class="profile-header">Feedback</h1>
+    <div class="user-details-container">
+      <div class="user-details">
+
+        <div class="star-rating">
+          <div *ngFor="let star of stars" class="rating-star">
+            <label for="rating-5"> <i class="ri-star-fill star-element" id={{star}}
+                (click)="!userFeedbackAvailable? countStar(star) : null"></i></label>
+          </div>
+        </div>
+
+        <div *ngIf="!userFeedbackAvailable;else other_content">
+          <div class="property-container d-flex align-center">
+            <label class="your-feedback-label" for="feedback-textarea">Your Feedback</label>
+            <textarea class="h3 content" id="feedback-textarea" rows="13" placeholder="Provide your valuable feedback"
+              [(ngModel)]="providedFeedback" autofocus></textarea>
+          </div>
+          <div class="submit-feedback">
+            <button class="update button" (click)="submitFeedback()">
+              Submit
+            </button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #other_content>
+  <div>
+    <div class="property-container d-flex align-center">
+      <textarea class="h3 content" rows="8" placeholder="{{userFeedback[0].userFeedback}}"
+        [(ngModel)]="providedFeedback" disabled></textarea>
+    </div>
+    <div class="date">
+      {{userFeedback[0].postedAt | date :'medium'}}
+    </div>
+    <div class="property-container d-flex align-center">
+      <textarea class="h3 admin-reply content" rows="5" placeholder="{{userFeedback[0].adminReply}}"
+        disabled></textarea>
+    </div>
+    <div class="date">
+      {{userFeedback[0].adminReplyTime | date :'medium'}}
+    </div>
+  </div>
+</ng-template>

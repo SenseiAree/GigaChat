@@ -1,0 +1,124 @@
+<div class="contacts-container">
+    <div class="user-chats-container">
+        <div class="px-4 pt-4">
+            <h3 class="mb-4">View Contacts</h3>
+            <div class="input-group mb-3 rounded-3">
+                <div class="search-icon-container">
+                    <i class="ri-search-line"></i>
+                </div>
+                <div class="search-bar-container">
+                    <input [(ngModel)]="searchUsers" placeholder="Search users to add in contact..." class="search-bar"
+                        type="text">
+                </div>
+            </div>
+        </div>
+        <div class="conversation-list-container px-2">
+            <div class="blocklist-container">
+                <h4 class="conversation-list-header"
+                    *ngIf="!((this.searchUsers != null || this.searchUsers != undefined) && this.searchUsers.length > 0)">
+                    Blocked Contacts
+                </h4>
+                <ul class="conversation-card-group"
+                    *ngIf="(users != null || users != undefined) && (userProfiles != null || userProfiles != undefined) && (friendList != null || friendList != undefined)">
+                    <li class="conversation-card" *ngFor="let user of filterBlockedUsers(); let i = index">
+                        <div class="conversation-card-link">
+                            <div class="contact-list-grid">
+                                <div class="img-container">
+                                    <img [src]="'../../../../assets/Icons/ProfilePictures/' + getDynamicUserProfile(user.userId).avatar "
+                                        height="40" alt="">
+                                </div>
+                                <div class="d-flex align-center gap-25">
+                                    <h4 class="message-person-name-container">{{ user.displayName }}</h4>
+                                    <div class="showAvailabilityStatus" [ngClass]="{
+                                    'available-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Available', 
+                                    'busy-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Busy',
+                                    'brb-status-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Be right back',
+                                    'dnd-status-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Do not disturb',
+                                    'offline-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Appear Offline'
+                                }"> {{ getDynamicUserProfile(user.userId).availabilityStatus }}
+                                    </div>
+                                </div>
+                                <div class="isFriend-container">
+                                    <div class="" *ngIf="isFriend(user.userId) == IsFriend.Blocked">
+                                        <button class="contact-button" (click)="unblockContact(user)">
+                                            <i class="ri-user-forbid-line"></i>
+                                            UnBlock
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="unblockList-container">
+                <h4 class="conversation-list-header">
+                    All Contacts
+                </h4>
+                <ul class="conversation-card-group"
+                    *ngIf="(users != null || users != undefined) && (userProfiles != null || userProfiles != undefined) && (friendList != null || friendList != undefined)">
+                    <li class="conversation-card" *ngFor="let user of filterUsersNotBlocked(); let i = index">
+                        <div class="conversation-card-link">
+                            <div class="contact-list-grid">
+                                <div class="img-container">
+                                    <img [src]="'../../../../assets/Icons/ProfilePictures/' + getDynamicUserProfile(user.userId).avatar "
+                                        height="40" alt="">
+                                </div>
+                                <div class="d-flex align-center gap-25">
+                                    <h4 class="message-person-name-container">{{ user.displayName }}</h4>
+                                    <div class="showAvailabilityStatus" [ngClass]="{
+                                        'available-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Available', 
+                                        'busy-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Busy',
+                                        'brb-status-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Be right back',
+                                        'dnd-status-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Do not disturb',
+                                        'offline-label': getDynamicUserProfile(user.userId).availabilityStatus == 'Appear Offline'
+                                    }"> {{ getDynamicUserProfile(user.userId).availabilityStatus }}
+                                    </div>
+                                </div>
+                                <div class="isFriend-container">
+                                    <div class="d-flex gap-25" *ngIf="isFriend(user.userId) == IsFriend.Yes">
+                                        <button class="contact-button" (click)="removeContact(user)">
+                                            <i class="ri-user-unfollow-line"></i>
+                                            Remove
+                                        </button>
+                                        <button class="contact-button" (click)="blockContact(user)">
+                                            <i class="ri-user-forbid-line"></i>
+                                            Block
+                                        </button>
+                                        <button class="contact-button" (click)="addChat(user.userId)">
+                                            <i class="ri-message-3-line"></i>
+                                            Add Chat
+                                        </button>
+                                    </div>
+
+                                    <div class="" *ngIf="isFriend(user.userId) == IsFriend.No">
+                                        <button class="contact-button" (click)="addContact(user)">
+                                            <i class="ri-user-add-line"></i>
+                                            Add to Contact
+                                        </button>
+                                        <button class="contact-button" (click)="blockContact(user)">
+                                            <i class="ri-user-forbid-line"></i>
+                                            Block
+                                        </button>
+                                    </div>
+
+                                    <div class="" *ngIf="isFriend(user.userId) == IsFriend.Blocked">
+                                        <button class="contact-button" (click)="unblockContact(user)">
+                                            <i class="ri-user-forbid-line"></i>
+                                            UnBlock
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

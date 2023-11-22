@@ -1,0 +1,98 @@
+<div [ngClass]="{'day-mode': isLighttheme, 'night-mode': !isLighttheme}">
+
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-list-item brand-logo w-126px">
+                <a class="nav-link brand-title" routerLink="/">
+                    <div class="brand-logo-container">
+                        <img src="../../../assets/Icons/Brand/logo.png" height="30" alt="">
+                    </div>
+                    GigaCHAT
+                </a>
+
+            </li>
+            <li class="navbar-list-item d-flex justify-content-around">
+                <div class="theme-changing-icon-frame" (click)="isLighttheme = !isLighttheme">
+                    <i class="theme-changing-icon" [ngClass]="{'ri-sun-line': isLighttheme, 'ri-moon-fill': !isLighttheme}"></i>
+                </div>
+                <a class="nav-link button" routerLink="/login">
+                    <i class="ri-login-circle-line"></i>
+                    Login
+                </a>
+                <a class="nav-link button" routerLink="/signup">
+                    <i class="ri-edit-circle-line"></i>
+                    Signup
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+    <div class="home-content-container">
+        <div class="home-content">
+            <div class="home-introduction" data-aos="fade-right" data-aos-duration="500">
+                <div class="introduction-title gap-10">
+                    <div class="brand-logo-container home-image">
+                        <img src="../../../assets/Icons/Brand/logo.png" height="40" alt="">
+                    </div>
+                    GigaCHAT
+                </div>
+                <div class="introduction-content">
+                    Unleash your inner Chad with GigaCHAT - the ultimate chatting app.
+                </div>
+            </div>
+            <img class="home-message-img" src="../../../assets/Icons/Side-Assets/message.png" alt="Chat-Message-Icon">
+        </div>
+    </div>
+
+
+    <div class="feedback-container">
+        <div class="feedback-content">
+            <div class="feedback-title" data-aos="fade-left" data-aos-duration="1000">
+                <i class="ri-bard-fill"></i> Latest Feedback
+            </div>
+            <div class="feedback-card-group">
+                <div *ngFor="let eachFeedback of latestFeedback" class="feedback-card" data-aos="zoom-in"
+                    data-aos-duration="500">
+                    <div class="feedback-card-picture">
+                        <img [src]="'../../../assets/Icons/ProfilePictures/' + getPictureFromUserId(eachFeedback.userId)" height="50" alt="">
+                        <div class="feedback-card-userName w-m50">
+                            {{getNameFromUserId(eachFeedback.userId)}}
+                        </div>
+                    </div>
+                    <div class="feedback-card-content">
+                        <div class="feedback-card-review-text">
+                            {{eachFeedback.userFeedback}}
+                        </div>
+                        <div class="feedback-card-footer">
+                            Rating:
+                            <div class="loading-bar-container">
+                                <div class="loading-bar" [ngClass]="{
+                                'rating-1': eachFeedback.rating==1, 
+                                'rating-2': eachFeedback.rating==2,
+                                'rating-3': eachFeedback.rating==3,
+                                'rating-4': eachFeedback.rating==4,
+                                'rating-5': eachFeedback.rating==5
+                            }">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="feedback-footer-container">
+                <div class="feedback-footer">
+                    Ready to start your journey?
+                </div>
+                <a class="nav-link button footer-button" (click)="scrollTo()" routerLink="/signup">
+                    <i class="ri-edit-circle-line"></i>
+                    Create an account to start GigaCHAT-ting now!
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

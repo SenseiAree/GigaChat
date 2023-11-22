@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+    transition-property: background-color color;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-in-out;
+}
+
+.chat-container {
+    color: var(--bs-gray-700);
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.side-navbar-menu {
+    background-color: var(--bs-sidebar-bg);
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.router-link i {
+    color: var(--bs-sidebar-menu-item-active-color) !important;
+}
+
+.brand-container {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-interface-frame {
+    background-color: var(--bs-body-bg);
+    width: 100%;
+    max-width: 100vw;
+}
+
+.icon-frame {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.icon-link {
+    color: var(--brand-900);
+    text-decoration: none;
+}
+
+.icon-frame i {
+    font-size: 1.5rem;
+    color: var(--bs-sidebar-menu-item-color);
+}
+
+.icon-frame:hover::before {
+    opacity: 1;
+}
+
+.icon-frame::before {
+    content: attr(data-content);
+    font-family: Roboto;
+    padding: 0.5em;
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 80%;
+    border-radius: 0.25em;
+    text-align: center;
+    color: var(--bs-gray-100);
+    background: var(--bs-gray-900);
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.icon-frame:hover::after {
+    opacity: 1;
+}
+
+.icon-frame::after {
+    content: "";
+    position: absolute;
+    content: "";
+    position: absolute;
+    background: var(--bs-gray-900);
+    height: 0.5em;
+    width: 0.5em;
+    opacity: 0;
+    bottom: 70%;
+    transition: opacity 0.5s ease-in-out;
+    clip-path: polygon(50% 100%, 0 30%, 100% 30%);
+}
+
+.settings-menu {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    justify-self: end;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.availability {
+    font-size: 0.5rem !important;
+    --diagonal: 0%;
+    height: 1rem;
+    width: 1rem;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    right: var(--diagonal);
+    bottom: var(--diagonal);
+}
+
+.availability.brb-status::before{
+    font-size: 1rem;
+}
+.availability.offline::before{
+    font-size: 0.5rem;
+}

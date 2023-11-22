@@ -1,0 +1,86 @@
+<div class="profile-container">
+    <div class="radial-light"></div>
+    <div [ngClass]="{'updateMode': updateMode}" class="update-picture frame">
+        <div class="" *ngFor="let picture of pictures">
+            <img (click)="updateUserProfilePicture(picture)" class="update-picture-image"
+                [src]="'../../../../assets/Icons/ProfilePictures/' + picture" alt="">
+        </div>
+    </div>
+    <div class="profile frame" *ngIf="userProfile != undefined && user != undefined">
+        <h1 class="profile-header">My Profile</h1>
+        <div class="user-details-container">
+            <div class="profile-picture-container">
+                <img [src]="'../../../../assets/Icons/ProfilePictures/' + selectedAvatar" height="150" alt=""  (click)="updateMode = !updateMode"/>
+                <span class="availability"
+                    [ngClass]="{
+                        'available': availabilityStatus == 'Available', 
+                        'busy': availabilityStatus == 'Busy',
+                        'brb-status': availabilityStatus == 'Be right back',
+                        'dnd-status': availabilityStatus == 'Do not disturb',
+                        'offline': availabilityStatus == 'Appear Offline'
+                    }"></span>
+            </div>
+            <div class="user-details">
+                <div class="property-container d-flex align-center">
+                    <input class="h2 content" [(ngModel)]="displayName" [disabled]="!updateName">
+                    <div class="">
+                        <div class="update icon-container" *ngIf="!updateName" (click)="updateName = true">
+                            <i class="ri-pencil-fill"></i>
+                        </div>
+                        <div class="d-flex" *ngIf="updateName">
+                            <div class="save icon-container" (click)="updateName = false; updateDisplayName()">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <div class="cancel icon-container"
+                                (click)="selectedAvatar = userProfile.avatar; displayName = user.displayName; updateName = false">
+                                <i class="ri-close-circle-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edit-box  px-3 property-container d-flex justify-content-around align-center">
+                    <h3 class="title">Email</h3>
+                    <input class="h4 content" [value]="user.emailId" disabled>
+                </div>
+                <div class="edit-box  px-3 property-container d-flex justify-content-around align-center">
+                    <h3 class="title">Date Of Birth</h3>
+                    <input type="text" class="h4 content" [ngModel]="user.dateOfBirth | date: 'mediumDate'" disabled>
+                </div>
+                <div class="edit-box  px-3 property-container d-flex justify-content-around align-center">
+                    <h3 class="title">Status</h3>
+                    <select class="content" name="availabilityStatus" [(ngModel)]="availabilityStatus" (change)="updateAvailibilityStatus()">
+                        <option value="Available"> Available </option>
+                        <option value="Busy"> Busy </option>
+                        <option value="Be right back"> Be right back </option>
+                        <option value="Do not disturb"> Do not disturb </option>
+                        <option value="Appear Offline"> Appear Offline </option>
+                    </select>
+                </div>
+
+                <!-- <div class="update-button-container">
+                    <div class="" *ngIf="!updateMode">
+                        <button class="update button" (click)="updateMode = true">
+                            <i class="ri-edit-line"></i>
+                            Update
+                        </button>
+                    </div>
+                    <div class="" *ngIf="updateMode">
+                        <button class="cancel button" (click)="cancelUpdate()">
+                            <i class="ri-close-line"></i>
+                            Cancel
+                        </button>
+                        <button class="save button" (click)="updateUserProfile()">
+                            <i class="ri-check-line"></i>
+                            Save
+                        </button>
+                    </div>
+                </div> -->
+
+                <div class="text-center font-Roboto info-label">
+                    Please contact admin to change your password
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,223 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bs-gray-300);
+    min-height: calc(100vh - 50px);
+    position: relative;
+}
+
+.login-frame {
+    min-height: 250px;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    background-color: var(--bs-gray-200-transparent-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 100;
+    /* background: linear-gradient(145deg, #fffbff, #d7d4e1); */
+}
+.invalid-details{
+    text-align: center;
+    color: var(--danger);
+    font-weight: 600;
+    font-family: Roboto;    
+}
+.form-header{
+    text-align: left;
+    padding-inline-start: 1.25rem;
+    font-weight: 900;
+    color: var(--bs-gray-700);
+    font-size: 2rem;
+    font-family: Roboto;
+    margin-block: 0.5em;
+}
+
+.bubble {
+    width: 75%;
+}
+
+.d-block {
+    display: block;
+}
+
+.picture-container {
+    height: 100px;
+    position: relative;
+    flex-wrap: wrap;
+    background-color: none;
+}
+
+.picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 1rem;
+}
+
+.picture-frame {
+    display: flex;
+    align-items: center;
+}
+
+.picture-frame {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture-frame img {
+    transition: scale 0.5s ease-in-out, filter 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.picture-frame:hover img {
+    scale: 1.1;
+    filter: brightness(90%);
+}
+
+.picture-frame::before {
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: auto;
+    z-index: 1;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: var(--bs-gray-500);
+}
+.arrow:hover{
+    color: var(--bs-gray-900);
+}
+
+
+.form-frame {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bs-gray-100-transparent-color);
+    border-radius: 1rem;    
+    padding: 0.5rem;
+    position: relative;
+}
+
+.label-input-div-container {
+    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (width < 700px) {
+    .label-input-div-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose-picture-frame {
+        height: 500px !important;
+    }
+}
+
+.label-input-div {
+    border-radius: 0.25rem;
+    padding-inline: 0.5rem;
+}
+
+.form-font {
+    font-family: Roboto;
+    padding-block: 0.25rem;
+    color: var(--bs-gray-800);
+    padding-inline: 0.25rem;
+}
+.form-font::after{
+    content: '*';
+    color: var(--danger);
+}
+
+.form-input {
+    width: 100%;
+    background-color: var(--bs-gray-300-transparent-color);
+    border: 0;
+    outline: 2px solid var(--bs-gray-400);
+    min-height: 2rem;
+    border-radius: 0.25rem;
+    padding-inline: 0.25rem;
+    color: var(--bs-gray-800);
+}
+
+.form-input[type="date"] {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form-input:focus {
+    outline: 2px solid var(--bs-chat-primary-bg);
+}
+
+.submit-button {
+    background-color: var(--bs-chat-primary-bg);
+    color: var(--light);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    border-radius: 24px;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 2px 0px #9270db93;
+    border: 0;
+    min-width: 40%;
+    margin-block: 0.5rem;
+    position: relative;
+    transition: font-size 0.5s ease-in-out;
+    min-height: 2rem;
+}
+.submit-button:disabled{
+    background-color: gray;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.background-blob{
+    position: absolute;
+    width: 100%;
+    height: 100%;    
+    left: 0;
+}
+#shape-blob{
+    position: relative;
+    left: 0;
+}
+.validation-Confirmation {
+    padding: 0.25rem;
+    font-family: 'Roboto';
+    color: var(--danger);
+}
+.not-a-member{
+    text-align: center;
+    font-family: Roboto;
+    color: var(--bs-gray-900);
+}
+.not-a-member a{
+    font-weight: 800;
+    color: var(--bs-gray-900);
+}
+.not-a-member a:hover{
+    color: var(--bs-gray-600);
+}
